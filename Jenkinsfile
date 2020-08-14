@@ -1,5 +1,5 @@
 pipeline {
-   // agent { label 'windows-isaias' }
+    agent { label 'windows-isaias-appium' }
     options {
         disableConcurrentBuilds()
         skipDefaultCheckout()
