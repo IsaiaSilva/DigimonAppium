@@ -1,0 +1,11 @@
+
+## YAML Templatesss
+
+default: -p pretty -p homolog -p chrome -p html
+#default: -p pretty -p chrome -p html
+pretty: --format pretty
+homolog:  AMBIENTE=homolog
+production:  AMBIENTE=producao
+#firefox: BROWSERS=firefox
+chrome: BROWSERS=chrome
+html: --format html --out=reports/relatorio.html
