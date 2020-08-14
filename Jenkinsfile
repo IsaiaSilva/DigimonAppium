@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'windows-isaias' }
+   // agent { label 'windows-isaias' }
     options {
         disableConcurrentBuilds()
         skipDefaultCheckout()
@@ -10,10 +10,10 @@ pipeline {
     stages {
         stage("Checkout"){
 	        parallel {
-				stage("automacao") {
+				stage("DigimonAppium") {
 					steps {
-	            		dir('digimon_appium'){
-	            	    	git credentialsId: "isaiasilva", url: "https://github.com/IsaiaSilva/DigimonAppium.git"
+	            		dir('DigimonAppium'){
+	            	    	git credentialsId: "isaiasilva.info@gmail.com", url: "https://github.com/IsaiaSilva/DigimonAppium.git"
 	            	    }
 					}
 				}
@@ -26,7 +26,7 @@ pipeline {
 	        parallel {
                 stage('ui') {
                     steps {
-                    	dir('digimon_appium'){
+                    	dir('DigimonAppium'){
 							bat """
 							    bundle exec cucumber"
 							    """

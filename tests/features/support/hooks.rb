@@ -6,7 +6,15 @@ Before do
   end
  
 After do |scenario|   
-  scenario_name = scenario.name.gsub(/\s+/,'_').tr('/','_')
+  time = Time.new
+	Dir.mkdir('reports') unless Dir.exist?('reports')
+
+	sufix = ('fail' if scenario.failed?) || 'sucess'
+	name = scenario.name.tr(' ','_').downcase
+
+  screenshot("reports/#{sufix}_#{name}_#{time.day}-#{time.month}-#{time.year}.png")
+  
+#  scenario_name = scenario.name.gsub(/\s+/,'_').tr('/','_')
 
  #  if scenario.failed?
   #  tirar_foto(scenario_name.downcase!, 'falhou')

@@ -1,13 +1,13 @@
 Dado("que a aplicacao esta aberta") do
 
-    digimon.aplicacao_aberta()
+    digimon.tela_principal_aberta?
 
     id('digimon_list').displayed?
     id('action_insert_digimon').displayed?
 end
   
  Quando("iniciar o cadastro do digimon") do
-    digimon.botaoMais_cadastrar
+    digimon.tocar_icone_botao_mais
  end
   
  Quando("preecho as informaçãoes") do
@@ -15,18 +15,9 @@ end
  end
 
  Quando('insiro o digimon') do
-    digimon.botaoInsert_Digimon
+    digimon.insert_digimon
   end
   
  Então("verifico que o digimon foi cadastrado") do
- #   digimon.validar_cadastro
-
-    result = id('com.example.leonardomenezes.digimonrealmsample:id/name').displayed?
-    # result = @driver.find_element(:id, "com.example.leonardomenezes.digimonrealmsample:id/name")
-     
-      if (!result.nil?) && (result.text.eql? "CharmanderMon")
-         puts "Test Passed"
-       else
-         puts "Test Failed"
-       end
+    digimon.validar_cadastro
  end

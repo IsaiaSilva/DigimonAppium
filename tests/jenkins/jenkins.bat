@@ -1,0 +1,1 @@
+java -jar swarm-client-3.15.jar -description windows-isaias-appium -executors 1 -fsroot c:\jenkins-slave -labels windows-isaias-appium -master http://localhost:8080/ -mode exclusive -name windows-isaias-appium
